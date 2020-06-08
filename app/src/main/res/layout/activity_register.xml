@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.RegisterActivity">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:src="@drawable/reg_background"
+        android:layout_height="match_parent">
+
+    </ImageView>
+
+    <studio.carbonylgroup.textfieldboxes.TextFieldBoxes
+        android:id="@+id/username"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="150dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        app:secondaryColor ="@color/text_color"
+        app:primaryColor="@color/text_color"
+        app:enabled="false"
+        app:labelText="@string/username">
+<!--        app:iconSignifier="@drawable/ic_flag"-->
+        <studio.carbonylgroup.textfieldboxes.ExtendedEditText
+            android:id="@+id/edt_username"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textCursorDrawable="@null"
+            android:imeOptions="actionNext"
+            android:inputType="text"
+            android:maxLines="1"
+            android:textColor="@color/text_color"
+            />
+
+    </studio.carbonylgroup.textfieldboxes.TextFieldBoxes>
+
+    <studio.carbonylgroup.textfieldboxes.TextFieldBoxes
+        android:id="@+id/password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        app:secondaryColor ="@color/text_color"
+        app:primaryColor="@color/text_color"
+        android:layout_below="@id/username"
+        android:layout_marginTop="24dp"
+        app:enabled="false"
+        app:labelText="@string/password">
+        <!--        app:iconSignifier="@drawable/ic_flag"-->
+        <studio.carbonylgroup.textfieldboxes.ExtendedEditText
+            android:id="@+id/edt_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textCursorDrawable="@null"
+            android:imeOptions="actionNext"
+            android:inputType="textPassword"
+            android:maxLines="1"
+
+            android:textColor="@color/text_color"
+            />
+
+    </studio.carbonylgroup.textfieldboxes.TextFieldBoxes>
+
+    <studio.carbonylgroup.textfieldboxes.TextFieldBoxes
+        android:id="@+id/confirm_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        app:secondaryColor ="@color/text_color"
+        app:primaryColor="@color/text_color"
+        android:layout_below="@id/password"
+        android:layout_marginTop="24dp"
+        app:enabled="false"
+        app:labelText="@string/confirm_password">
+        <!--        app:iconSignifier="@drawable/ic_flag"-->
+        <studio.carbonylgroup.textfieldboxes.ExtendedEditText
+            android:id="@+id/edt_confirm_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textCursorDrawable="@null"
+            android:imeOptions="actionNext"
+            android:inputType="textPassword"
+            android:maxLines="1"
+
+            android:textColor="@color/text_color"
+            />
+
+    </studio.carbonylgroup.textfieldboxes.TextFieldBoxes>
+
+    <Button
+        android:id="@+id/sign_up"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:textStyle="bold"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_below="@id/confirm_password"
+        android:text="@string/sign_up"
+        android:textColor="@color/white"
+        android:background="@drawable/finish_button"
+        android:layout_centerHorizontal="true"/>
+
+</RelativeLayout>
+</layout>

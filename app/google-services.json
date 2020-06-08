@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "511064176346",
+    "firebase_url": "https://radiome-7f26e.firebaseio.com",
+    "project_id": "radiome-7f26e",
+    "storage_bucket": "radiome-7f26e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:511064176346:android:7b07a3401d453f999417e3",
+        "android_client_info": {
+          "package_name": "com.behruz.radiome"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "511064176346-v046b3ie3m16jktisvf0drvb9ko27mh4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyClEAGTZnFSM8Yt62c0hu4oWu8eEId1Fa0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "511064176346-v046b3ie3m16jktisvf0drvb9ko27mh4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
