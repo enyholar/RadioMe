@@ -61,6 +61,7 @@
                             android:id="@+id/button_inspirational"
                             android:layout_width="wrap_content"
                             android:layout_height="40dp"
+
                             android:layout_alignParentTop="true"
                             android:layout_alignParentEnd="true"
                             android:layout_alignParentRight="true"
@@ -70,7 +71,7 @@
                             android:background="#00000000"
                             android:text="@string/more"
                             android:textAllCaps="false"
-                            android:textColor="@color/colorPrimary"
+                            android:textColor="@color/btn_create"
                             android:textStyle="bold" />
 
                     </RelativeLayout>
@@ -127,7 +128,7 @@
                             android:layout_alignParentRight="true"
                             android:background="#00000000"
                             android:text="@string/more"
-                            android:textColor="@color/colorPrimary"
+                            android:textColor="@color/btn_create"
                             android:textStyle="bold" />
 
                     </RelativeLayout>
@@ -176,7 +177,7 @@
                             android:layout_alignParentRight="true"
                             android:background="#00000000"
                             android:text="@string/more"
-                            android:textColor="@color/colorPrimary"
+                            android:textColor="@color/btn_create"
                             android:textStyle="bold" />
 
                     </RelativeLayout>
@@ -225,7 +226,7 @@
                             android:layout_alignParentRight="true"
                             android:background="#00000000"
                             android:text="@string/more"
-                            android:textColor="@color/colorPrimary"
+                            android:textColor="@color/btn_create"
                             android:textStyle="bold" />
 
                     </RelativeLayout>
@@ -239,16 +240,6 @@
                 </LinearLayout>
 
             </LinearLayout>
-
-<!--            <com.wang.avi.AVLoadingIndicatorView-->
-<!--                android:id="@+id/progreesbar_home_fragment"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_centerHorizontal="true"-->
-<!--                android:layout_centerVertical="true"-->
-<!--                android:visibility="gone"-->
-<!--                app:indicatorColor="@color/colorTextPink"-->
-<!--                app:indicatorName="BallClipRotateIndicator" />-->
 
         </RelativeLayout>
 

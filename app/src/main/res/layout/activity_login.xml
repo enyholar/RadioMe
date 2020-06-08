@@ -23,7 +23,6 @@
             android:layout_marginEnd="16dp"
             app:secondaryColor ="@color/text_color"
             app:primaryColor="@color/text_color"
-            app:enabled="false"
             app:labelText="@string/username">
             <!--        app:iconSignifier="@drawable/ic_flag"-->
             <studio.carbonylgroup.textfieldboxes.ExtendedEditText
@@ -49,7 +48,6 @@
             app:primaryColor="@color/text_color"
             android:layout_below="@id/username"
             android:layout_marginTop="24dp"
-            app:enabled="false"
             app:labelText="@string/password">
             <!--        app:iconSignifier="@drawable/ic_flag"-->
             <studio.carbonylgroup.textfieldboxes.ExtendedEditText
@@ -78,6 +76,20 @@
             android:layout_marginEnd="16dp"
             android:layout_below="@id/password"
             android:text="@string/sign_in"
+            android:textColor="@color/white"
+            android:background="@drawable/finish_button"
+            android:layout_centerHorizontal="true"/>
+
+        <Button
+            android:id="@+id/sign_in"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:textStyle="bold"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_below="@id/sign_up"
+            android:text="Sign up"
             android:textColor="@color/white"
             android:background="@drawable/finish_button"
             android:layout_centerHorizontal="true"/>

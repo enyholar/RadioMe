@@ -77,8 +77,7 @@ public class HomeFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        mLayoutManager = new LinearLayoutManager(this.getActivity());
-
+        setUpAdapter();
         getRadioList();
     }
 
@@ -111,11 +110,15 @@ public class HomeFragment extends Fragment {
             }
         });
 
-        //binding.recRadiolist.setHasFixedSize(true);
+        LinearLayoutManager  mLayoutManager = new LinearLayoutManager(this.getActivity());
+        LinearLayoutManager  mLayoutManager1 = new LinearLayoutManager(this.getActivity());
+        LinearLayoutManager  mLayoutManager2 = new LinearLayoutManager(this.getActivity());
+        LinearLayoutManager  mLayoutManager3 = new LinearLayoutManager(this.getActivity());
+
         binding.recyclerViewChristainFaith.setLayoutManager(mLayoutManager);
-        binding.recyclerViewEntertainment.setLayoutManager(mLayoutManager);
-        binding.recyclerViewFmRadio.setLayoutManager(mLayoutManager);
-        binding.recyclerViewInspirational.setLayoutManager(mLayoutManager);
+        binding.recyclerViewEntertainment.setLayoutManager(mLayoutManager1);
+        binding.recyclerViewFmRadio.setLayoutManager(mLayoutManager2);
+        binding.recyclerViewInspirational.setLayoutManager(mLayoutManager3);
         binding.recyclerViewInspirational.setAdapter(inspAdapter);
         binding.recyclerViewFmRadio.setAdapter(fmAdapter);
         binding.recyclerViewEntertainment.setAdapter(entertainAdapter);

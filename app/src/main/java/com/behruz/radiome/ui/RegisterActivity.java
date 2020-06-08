@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -30,11 +31,13 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     private void register() {
-        mAuth.createUserWithEmailAndPassword(binding.edtUsername.getText().toString(),
-                binding.edtPassword.getText().toString())
+        String email = binding.edtUsername.getText().toString();
+        String password =  binding.edtPassword.getText().toString();
+        mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, task -> {
                     if (task.isSuccessful()) {
                         FirebaseUser user = mAuth.getCurrentUser();
+                        openMain();
                     } else {
                         // If sign in fails, display a message to the user.
                         Toast.makeText(RegisterActivity.this,
@@ -42,5 +45,10 @@ public class RegisterActivity extends AppCompatActivity {
                                 Toast.LENGTH_SHORT).show();
                     }
                 });
+    }
+
+    private void openMain(){
+        Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
+        startActivity(intent);
     }
 }

@@ -101,7 +101,7 @@ public class RadioListAdapter extends RecyclerView.Adapter<RadioListAdapter.Movi
                     .load(model.getRadioImage())
                     .error(context.getResources().getDrawable(R.drawable.ic_launcher_background))
                     .into(binding.radioArt);
-
+            binding.txtListening.setText(model.getListener() + " Listening");
             binding.rootView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {

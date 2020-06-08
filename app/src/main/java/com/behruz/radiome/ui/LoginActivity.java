@@ -1,5 +1,6 @@
 package com.behruz.radiome.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
@@ -22,6 +23,7 @@ public class LoginActivity extends AppCompatActivity {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_login);
         mAuth = FirebaseAuth.getInstance();
         binding.signUp.setOnClickListener(view -> login());
+        binding.signIn.setOnClickListener(view -> openRegister());
     }
 
     private void login() {
@@ -37,5 +39,10 @@ public class LoginActivity extends AppCompatActivity {
                                 Toast.LENGTH_SHORT).show();
                     }
                 });
+    }
+
+    private void openRegister(){
+        Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
+        startActivity(intent);
     }
 }
