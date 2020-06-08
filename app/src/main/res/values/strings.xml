@@ -7,4 +7,7 @@
     <string name="more">More</string>
     <string name="christian_faith_radio">Christian Faith Radio</string>
     <string name="entertainment">Entertainment</string>
+    <string name="sign_in">Sign in</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
