@@ -86,27 +86,36 @@ public class HomeFragment extends Fragment {
             @Override
             public void onItemClick(Radio model, int position) {
 
+                if (mItemClickListener != null) {
+                    mItemClickListener.onItemClick(model);
+                }
             }
         });
 
         inspAdapter = new RadioListAdapter(getContext(), new RadioListAdapter.ClickListner() {
             @Override
             public void onItemClick(Radio model, int position) {
-
+                if (mItemClickListener != null) {
+                    mItemClickListener.onItemClick(model);
+                }
             }
         });
 
         fmAdapter = new RadioListAdapter(getContext(), new RadioListAdapter.ClickListner() {
             @Override
             public void onItemClick(Radio model, int position) {
-
+                if (mItemClickListener != null) {
+                    mItemClickListener.onItemClick(model);
+                }
             }
         });
 
         gospelAdapter = new RadioListAdapter(getContext(), new RadioListAdapter.ClickListner() {
             @Override
             public void onItemClick(Radio model, int position) {
-
+                if (mItemClickListener != null) {
+                    mItemClickListener.onItemClick(model);
+                }
             }
         });
 
@@ -180,6 +189,6 @@ public class HomeFragment extends Fragment {
 
     public interface ItemClickListenter {
 
-        void onItemClick();
+        void onItemClick(Radio radio);
     }
 }

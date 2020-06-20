@@ -2,7 +2,9 @@ package com.behruz.radiome.model;
 
 import com.google.gson.annotations.SerializedName;
 
-public class Radio {
+import java.io.Serializable;
+
+public class Radio implements Serializable {
 
 	@SerializedName("radioUrl")
 	private String radioUrl;

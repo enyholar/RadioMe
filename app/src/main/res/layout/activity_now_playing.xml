@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+<RelativeLayout
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.NowPlayingActivity">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:src="@drawable/tr_box_background"
+        android:layout_height="match_parent">
+    </ImageView>
+
+
+
+    <ImageView
+        android:id="@+id/radi_art"
+        android:layout_width="150dp"
+        android:src="@drawable/ic_launcher_background"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="120dp"
+        android:layout_height="150dp">
+    </ImageView>
+
+    <TextView
+        android:id="@+id/txt_title"
+        android:layout_width="wrap_content"
+        android:text="How to possess the land"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:layout_below="@id/radi_art"
+        android:layout_marginTop="32dp"
+        android:layout_centerHorizontal="true"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/txt_name"
+        android:layout_width="wrap_content"
+        android:text="How to possess the land"
+        android:textColor="@color/white"
+        android:layout_below="@id/txt_title"
+        android:layout_marginTop="8dp"
+        android:layout_centerHorizontal="true"
+        android:layout_height="wrap_content"/>
+
+    <RelativeLayout
+        android:id="@+id/rel"
+        android:layout_width="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="32dp"
+        android:layout_below="@id/txt_name"
+        android:layout_centerHorizontal="true"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/img_like"
+            android:layout_width="25dp"
+            android:src="@drawable/like_icon"
+            android:layout_height="25dp"/>
+
+        <ImageView
+            android:id="@+id/img_comment"
+            android:layout_width="25dp"
+            android:layout_toRightOf="@id/img_like"
+            android:layout_marginStart="32dp"
+            android:src="@drawable/comment_icon"
+            android:layout_height="25dp"/>
+
+        <ImageView
+            android:id="@+id/img_download"
+            android:layout_width="25dp"
+            android:layout_marginStart="32dp"
+            android:src="@drawable/download_icon"
+            android:layout_toRightOf="@id/img_comment"
+            android:layout_height="25dp"/>
+    </RelativeLayout>
+
+    <View
+        android:layout_below="@id/rel"
+        android:layout_width="match_parent"
+        android:id="@+id/seeker"
+        android:background="@color/colorPrimary"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_height="3dp">
+    </View>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="32dp"
+        android:layout_below="@id/seeker"
+        android:layout_centerHorizontal="true"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/img_previous"
+            android:layout_width="30dp"
+            android:src="@drawable/like_icon"
+            android:layout_centerVertical="true"
+            android:layout_height="30dp"/>
+
+        <ImageView
+            android:id="@+id/img_play_pause"
+            android:layout_width="50dp"
+            android:layout_toRightOf="@id/img_previous"
+            android:layout_marginStart="32dp"
+            android:src="@drawable/comment_icon"
+            android:layout_height="50dp"/>
+
+        <ImageView
+            android:id="@+id/img_next"
+            android:layout_width="30dp"
+            android:layout_marginStart="32dp"
+            android:src="@drawable/download_icon"
+            android:layout_toRightOf="@id/img_play_pause"
+            android:layout_centerVertical="true"
+            android:layout_height="30dp"/>
+    </RelativeLayout>
+</RelativeLayout>
+</layout>
