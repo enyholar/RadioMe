@@ -39,6 +39,7 @@ import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
 
 import androidx.core.app.NotificationManagerCompat;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.media.app.NotificationCompat;
 
 import com.behruz.radiome.R;
@@ -117,6 +118,7 @@ public class PlayerInService extends Service implements OnClickListener,
   private MediaSessionCompat ms;
   private PreferenUtil preferenUtil;
   private TelephonyManager telephonyManager;
+  private LocalBroadcastManager broadcaster;
 
   @Override
   public void onCreate() {
@@ -127,6 +129,8 @@ public class PlayerInService extends Service implements OnClickListener,
     if (VERSION.SDK_INT >= VERSION_CODES.O) {
       mChannel = new NotificationChannel(CHANNEL_ID, name, importance);
     }
+    broadcaster = LocalBroadcastManager.getInstance(this);
+
     handler = new Handler();
     mAudioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
     mAudioManager.requestAudioFocus(this, AudioManager.STREAM_MUSIC, AudioManager.AUDIOFOCUS_GAIN);
@@ -358,26 +362,11 @@ public class PlayerInService extends Service implements OnClickListener,
     if (mp.isPlaying()) {
       isPause = true;
       mp.stop();
+      Intent intent = new Intent("MyData");
+      intent.putExtra("stop", "stop");
+      broadcaster.sendBroadcast(intent);
       startNotify("", model);
       progressBarHandler.removeCallbacks(mUpdateTimeTask);
-//      if (mainBindingWeakReference.get() != null) {
-//        mainBindingWeakReference.get().quickControlRadioProgressbarPlay.setVisibility(View.GONE);
-//        mainBindingWeakReference.get().quickControlPlaypause
-//            .setImageResource(R.drawable.ic_play_arrow_grey_500_48dp);
-//        tint();
-//      }
-
-//      if (btnPlay.get() != null) {
-//        btnPlay.get().setBackgroundResource(R.drawable.ic_play_arrow_white_48dp);
-//      }
-
-      //    btnPlay.get().setBackgroundResource(R.drawable.ic_play_circle_outline_white_48dp);
-//      timer.cancel();
-//      onCompletion(mp);
-//      mNotificationManager.cancel(Constants.NOTIFICATION_ID.FOREGROUND_SERVICE);
-//      stopForeground(true);
-//      stopSelf();
-
       return;
     }
 
@@ -467,15 +456,14 @@ public class PlayerInService extends Service implements OnClickListener,
                 timer.cancel();
               }
 
-              if (btnPlay != null && btnPlay.get() != null) {
-                btnPlay.get().setBackgroundResource(R.drawable.baseline_play_arrow_white_36dp);
-              }
 
               preferenUtil.saveLastRadioPlayed(firstRadioModel);
               updateProgressBar();
-//              if (RadioPlayerActivity.mProgressBar != null) {
-//                RadioPlayerActivity.mProgressBar.show();
-//              }
+
+              Intent intent = new Intent("MyData");
+              intent.putExtra("radio", "radio");
+              intent.putExtra("model",firstRadioModel);
+              broadcaster.sendBroadcast(intent);
               playSong(firstRadioModel);
               break;
             }
@@ -507,6 +495,11 @@ public class PlayerInService extends Service implements OnClickListener,
 //            }
 
             preferenUtil.saveLastRadioPlayed(firstRadioModel);
+            Intent intent = new Intent("MyData");
+            intent.putExtra("radio", "radio");
+            intent.putExtra("model",firstRadioModel);
+            broadcaster.sendBroadcast(intent);
+
             playSong(firstRadioModel);
             break;
           }
@@ -544,6 +537,10 @@ public class PlayerInService extends Service implements OnClickListener,
 //              }
 
               preferenUtil.saveLastRadioPlayed(firstRadioModel);
+              Intent intent = new Intent("MyData");
+              intent.putExtra("radio", "radio");
+              intent.putExtra("model",firstRadioModel);
+              broadcaster.sendBroadcast(intent);
               playSong(firstRadioModel);
               break;
             }
@@ -574,6 +571,10 @@ public class PlayerInService extends Service implements OnClickListener,
 //            }
 
             preferenUtil.saveLastRadioPlayed(firstRadioModel);
+            Intent intent = new Intent("MyData");
+            intent.putExtra("radio", "radio");
+            intent.putExtra("model",firstRadioModel);
+            broadcaster.sendBroadcast(intent);
             playSong(firstRadioModel);
             break;
           }
@@ -636,7 +637,9 @@ public class PlayerInService extends Service implements OnClickListener,
           try {
             isPause = false;
             mp.start();
-
+            Intent intent = new Intent("MyData");
+            intent.putExtra("play", "play");
+            broadcaster.sendBroadcast(intent);
 
             //           RadioPlayerActivity.mProgressBar.hide();
             //  setUpMetadatForStreamRadio(model);

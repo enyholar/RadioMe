@@ -1,11 +1,15 @@
 package com.behruz.radiome.ui;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
 import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
 import com.behruz.radiome.R;
 import com.behruz.radiome.databinding.ActivityNowPlayingBinding;
@@ -17,9 +21,8 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 
 import static com.behruz.radiome.service.Constants.ACTION.NEXT_ACTION;
 import static com.behruz.radiome.service.Constants.ACTION.PREV_ACTION;
-import static com.behruz.radiome.service.PlayerInService.ARGS_RADIO_MODEL;
 
-public class NowPlayingActivity extends AppCompatActivity {
+public class NowPlayingActivity extends AppCompatActivity  {
     private ActivityNowPlayingBinding binding;
     public static Radio radioModel;
     public static final String ARGS_RADIO_MODEL = "radio_model";
@@ -31,20 +34,26 @@ public class NowPlayingActivity extends AppCompatActivity {
         radioModel = (Radio) getIntent().getSerializableExtra(ARGS_RADIO_MODEL);
         if(PlayerInService.mp != null){
             if (PlayerInService.mp.isPlaying()) {
-                binding.imgPlayPause.setImageDrawable(getApplicationContext()
-                        .getResources().getDrawable(R.drawable.baseline_stop_black_48dp));
+                binding.imgPlayPause.setImageDrawable(NowPlayingActivity.this
+                        .getResources().getDrawable(R.drawable.baseline_stop_white_36dp));
+            }else{
+                binding.imgPlayPause.setImageDrawable(NowPlayingActivity.this
+                        .getResources().getDrawable(R.drawable.baseline_play_arrow_white_36dp));
             }
+        }else{
+            binding.imgPlayPause.setImageDrawable(NowPlayingActivity.this
+                    .getResources().getDrawable(R.drawable.baseline_play_arrow_white_36dp));
         }
-        setUpView();
+        setUpView(radioModel);
         onButtonClick();
     }
 
-    private void setUpView(){
-        if (radioModel != null){
-            binding.txtName.setText(radioModel.getRadioName());
-            binding.txtTitle.setText(radioModel.getRadioName());
+    private void setUpView(Radio radio){
+        if (radio != null){
+            binding.txtName.setText(radio.getRadioName());
+            binding.txtTitle.setText(radio.getRadioName());
             Glide.with(this)
-                    .load(radioModel.getRadioImage())
+                    .load(radio.getRadioImage())
                     .diskCacheStrategy(DiskCacheStrategy.ALL)
                     .into(binding.radiArt);
         }
@@ -86,4 +95,36 @@ public class NowPlayingActivity extends AppCompatActivity {
      //   intent.putExtra(ARGS_RADIO_ARRAYLIST, radioJson);
         startService(intent);
     }
+
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        LocalBroadcastManager.getInstance(this).unregisterReceiver(mMessageReceiver);
+    }
+
+    private BroadcastReceiver mMessageReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            if (intent.getStringExtra("radio") != null) {
+                Radio radio = (Radio) intent.getSerializableExtra("model");
+                setUpView(radio);
+            } else if (intent.getStringExtra("play") != null) {
+                binding.imgPlayPause.setImageDrawable(getApplicationContext()
+                        .getResources().getDrawable(R.drawable.baseline_stop_white_36dp));
+            } else if (intent.getStringExtra("stop") != null) {
+                binding.imgPlayPause.setImageDrawable(getApplicationContext()
+                        .getResources().getDrawable(R.drawable.baseline_play_arrow_white_36dp));
+            }
+        }
+    };
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        LocalBroadcastManager.getInstance(this).registerReceiver((mMessageReceiver),
+                new IntentFilter("MyData")
+        );
+    }
+
 }

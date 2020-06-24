@@ -12,17 +12,20 @@ import androidx.collection.ArraySet;
 import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.behruz.radiome.R;
 import com.behruz.radiome.adapter.RadioListAdapter;
 import com.behruz.radiome.databinding.HomeFragmentBinding;
 import com.behruz.radiome.model.Radio;
+import com.behruz.radiome.utils.PreferenUtil;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.gson.Gson;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -43,6 +46,7 @@ public class HomeFragment extends Fragment {
     private RadioListAdapter fmAdapter;
     private RadioListAdapter gospelAdapter;
     private LinearLayoutManager mLayoutManager;
+    private PreferenUtil preferenUtil;
 
     public HomeFragment(ItemClickListenter listenter) {
         // Required empty public constructor
@@ -71,6 +75,7 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
         binding = DataBindingUtil.inflate(
                 inflater, R.layout.home_fragment, container, false);
+        preferenUtil = PreferenUtil.getInstant(getContext());
         return binding.getRoot();
     }
 
@@ -87,6 +92,12 @@ public class HomeFragment extends Fragment {
             public void onItemClick(Radio model, int position) {
 
                 if (mItemClickListener != null) {
+                    if (entertainmentRadioList != null && entertainmentRadioList.size() > 0) {
+                        Gson gson = new Gson();
+                        String jsonRadio = gson.toJson(entertainmentRadioList);
+                        preferenUtil.saveAllRadioList(jsonRadio);
+
+                    }
                     mItemClickListener.onItemClick(model);
                 }
             }
@@ -96,6 +107,12 @@ public class HomeFragment extends Fragment {
             @Override
             public void onItemClick(Radio model, int position) {
                 if (mItemClickListener != null) {
+                    if (inspirationalRadioList != null && inspirationalRadioList.size() > 0) {
+                        Gson gson = new Gson();
+                        String jsonRadio = gson.toJson(inspirationalRadioList);
+                        preferenUtil.saveAllRadioList(jsonRadio);
+
+                    }
                     mItemClickListener.onItemClick(model);
                 }
             }
@@ -105,6 +122,12 @@ public class HomeFragment extends Fragment {
             @Override
             public void onItemClick(Radio model, int position) {
                 if (mItemClickListener != null) {
+                    if (fmRadioList != null && fmRadioList.size() > 0) {
+                        Gson gson = new Gson();
+                        String jsonRadio = gson.toJson(fmRadioList);
+                        preferenUtil.saveAllRadioList(jsonRadio);
+
+                    }
                     mItemClickListener.onItemClick(model);
                 }
             }
@@ -114,15 +137,21 @@ public class HomeFragment extends Fragment {
             @Override
             public void onItemClick(Radio model, int position) {
                 if (mItemClickListener != null) {
+                    if (gospelRadioList != null && gospelRadioList.size() > 0) {
+                        Gson gson = new Gson();
+                        String jsonRadio = gson.toJson(gospelRadioList);
+                        preferenUtil.saveAllRadioList(jsonRadio);
+
+                    }
                     mItemClickListener.onItemClick(model);
                 }
             }
         });
 
-        LinearLayoutManager  mLayoutManager = new LinearLayoutManager(this.getActivity());
-        LinearLayoutManager  mLayoutManager1 = new LinearLayoutManager(this.getActivity());
-        LinearLayoutManager  mLayoutManager2 = new LinearLayoutManager(this.getActivity());
-        LinearLayoutManager  mLayoutManager3 = new LinearLayoutManager(this.getActivity());
+        LinearLayoutManager  mLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
+        LinearLayoutManager  mLayoutManager1 = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
+        LinearLayoutManager  mLayoutManager2 = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
+        LinearLayoutManager  mLayoutManager3 = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
 
         binding.recyclerViewChristainFaith.setLayoutManager(mLayoutManager);
         binding.recyclerViewEntertainment.setLayoutManager(mLayoutManager1);

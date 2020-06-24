@@ -17,7 +17,7 @@
 
     <ImageView
         android:id="@+id/radi_art"
-        android:layout_width="150dp"
+        android:layout_width="200dp"
         android:src="@drawable/ic_launcher_background"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="120dp"
@@ -96,27 +96,27 @@
         android:layout_height="wrap_content">
         <ImageView
             android:id="@+id/img_previous"
-            android:layout_width="30dp"
-            android:src="@drawable/like_icon"
+            android:layout_width="wrap_content"
+            android:src="@drawable/baseline_skip_previous_white_36dp"
             android:layout_centerVertical="true"
-            android:layout_height="30dp"/>
+            android:layout_height="wrap_content"/>
 
         <ImageView
             android:id="@+id/img_play_pause"
-            android:layout_width="50dp"
+            android:layout_width="wrap_content"
             android:layout_toRightOf="@id/img_previous"
             android:layout_marginStart="32dp"
-            android:src="@drawable/comment_icon"
-            android:layout_height="50dp"/>
+            android:src="@drawable/baseline_stop_white_36dp"
+            android:layout_height="wrap_content"/>
 
         <ImageView
             android:id="@+id/img_next"
-            android:layout_width="30dp"
+            android:layout_width="wrap_content"
             android:layout_marginStart="32dp"
-            android:src="@drawable/download_icon"
+            android:src="@drawable/baseline_skip_next_white_36dp"
             android:layout_toRightOf="@id/img_play_pause"
             android:layout_centerVertical="true"
-            android:layout_height="30dp"/>
+            android:layout_height="wrap_content"/>
     </RelativeLayout>
 </RelativeLayout>
 </layout>
