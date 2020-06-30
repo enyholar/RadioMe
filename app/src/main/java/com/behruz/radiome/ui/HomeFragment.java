@@ -1,5 +1,7 @@
 package com.behruz.radiome.ui;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -19,6 +21,7 @@ import com.behruz.radiome.R;
 import com.behruz.radiome.adapter.RadioListAdapter;
 import com.behruz.radiome.databinding.HomeFragmentBinding;
 import com.behruz.radiome.model.Radio;
+import com.behruz.radiome.utils.Constants;
 import com.behruz.radiome.utils.PreferenUtil;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -33,7 +36,7 @@ import java.util.List;
 
 import static android.content.ContentValues.TAG;
 
-public class HomeFragment extends Fragment {
+public class HomeFragment extends Fragment implements View.OnClickListener {
     private ItemClickListenter mItemClickListener;
     private HomeFragmentBinding binding;
     private List<Radio> inspirationalRadioList = new ArrayList<>();
@@ -76,6 +79,10 @@ public class HomeFragment extends Fragment {
         binding = DataBindingUtil.inflate(
                 inflater, R.layout.home_fragment, container, false);
         preferenUtil = PreferenUtil.getInstant(getContext());
+        binding.buttonChristain.setOnClickListener(this);
+        binding.buttonEntertainment.setOnClickListener(this);
+        binding.buttonFmRadio.setOnClickListener(this);
+        binding.buttonInspirational.setOnClickListener(this);
         return binding.getRoot();
     }
 
@@ -214,6 +221,36 @@ public class HomeFragment extends Fragment {
         fmAdapter.addAll(fmRadioList);
     }
 
+    public void gotoArtistAlbumList (Context context, String catgory ) {
+        Intent intent = new Intent(context, MainActivity.class);
+        intent.setAction(Constants.ACTION.NAVIGATE_RADIO_LIST);
+        intent.putExtra("category",catgory);
+        context.startActivity(intent);
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.button_entertainment:
+                gotoArtistAlbumList(getContext(),"Entertainment Radio");
+                break;
+
+            case R.id.button_christain:
+                gotoArtistAlbumList(getContext(),"Christain Faith Radio");
+
+                break;
+
+            case R.id.button_inspirational:
+                gotoArtistAlbumList(getContext(),"Inspirational Radio");
+
+                break;
+
+            case R.id.button_fm_radio:
+                gotoArtistAlbumList(getContext(),"FM Radio");
+
+                break;
+        }
+    }
 
 
     public interface ItemClickListenter {

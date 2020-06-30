@@ -14,13 +14,13 @@ import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import com.behruz.radiome.R;
 import com.behruz.radiome.databinding.ActivityNowPlayingBinding;
 import com.behruz.radiome.model.Radio;
-import com.behruz.radiome.service.Constants;
+import com.behruz.radiome.utils.Constants;
 import com.behruz.radiome.service.PlayerInService;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 
-import static com.behruz.radiome.service.Constants.ACTION.NEXT_ACTION;
-import static com.behruz.radiome.service.Constants.ACTION.PREV_ACTION;
+import static com.behruz.radiome.utils.Constants.ACTION.NEXT_ACTION;
+import static com.behruz.radiome.utils.Constants.ACTION.PREV_ACTION;
 
 public class NowPlayingActivity extends AppCompatActivity  {
     private ActivityNowPlayingBinding binding;

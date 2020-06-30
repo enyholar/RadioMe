@@ -45,15 +45,7 @@
                                 android:text="Inspirational Radio"
                                 android:textColor="@color/black"
                                 android:textSize="16sp"
-                                android:textStyle="bold" />
-
-                            <!--<TextView-->
-                            <!--android:layout_width="wrap_content"-->
-                            <!--android:layout_height="wrap_content"-->
-                            <!--android:text="@string/latest_youve_recently_read"-->
-                            <!--android:textColor="@color/textView_sub_title_home_fragment"-->
-                            <!--android:textSize="14sp"-->
-                            <!--android:textStyle="bold" />-->
+                                android:fontFamily="@font/montserrat_bold" />
 
                         </LinearLayout>
 
@@ -72,7 +64,7 @@
                             android:text="@string/more"
                             android:textAllCaps="false"
                             android:textColor="@color/btn_create"
-                            android:textStyle="bold" />
+                            android:fontFamily="@font/montserrat_bold" />
 
                     </RelativeLayout>
 
@@ -106,15 +98,7 @@
                                 android:text="@string/christian_faith_radio"
                                 android:textColor="@color/black"
                                 android:textSize="16sp"
-                                android:textStyle="bold" />
-
-                            <!--<TextView-->
-                            <!--android:layout_width="wrap_content"-->
-                            <!--android:layout_height="wrap_content"-->
-                            <!--android:text="@string/stories_youve_recently_read"-->
-                            <!--android:textColor="@color/textView_sub_title_home_fragment"-->
-                            <!--android:textSize="14sp"-->
-                            <!--android:textStyle="bold" />-->
+                                android:fontFamily="@font/montserrat_bold" />
 
                         </LinearLayout>
 
@@ -129,7 +113,7 @@
                             android:background="#00000000"
                             android:text="@string/more"
                             android:textColor="@color/btn_create"
-                            android:textStyle="bold" />
+                            android:fontFamily="@font/montserrat_bold" />
 
                     </RelativeLayout>
 
@@ -155,15 +139,8 @@
                                 android:text="@string/entertainment"
                                 android:textColor="@color/black"
                                 android:textSize="16sp"
-                                android:textStyle="bold" />
+                                android:fontFamily="@font/montserrat_bold" />
 
-                            <!--<TextView-->
-                            <!--android:layout_width="wrap_content"-->
-                            <!--android:layout_height="wrap_content"-->
-                            <!--android:text="@string/stories_youve_recently_read"-->
-                            <!--android:textColor="@color/textView_sub_title_home_fragment"-->
-                            <!--android:textSize="14sp"-->
-                            <!--android:textStyle="bold" />-->
 
                         </LinearLayout>
 
@@ -178,7 +155,7 @@
                             android:background="#00000000"
                             android:text="@string/more"
                             android:textColor="@color/btn_create"
-                            android:textStyle="bold" />
+                            android:fontFamily="@font/montserrat_bold" />
 
                     </RelativeLayout>
 
@@ -204,15 +181,8 @@
                                 android:text="FM Radio"
                                 android:textColor="@color/black"
                                 android:textSize="16sp"
-                                android:textStyle="bold" />
+                                android:fontFamily="@font/montserrat_bold" />
 
-                            <!--<TextView-->
-                            <!--android:layout_width="wrap_content"-->
-                            <!--android:layout_height="wrap_content"-->
-                            <!--android:text="@string/stories_youve_recently_read"-->
-                            <!--android:textColor="@color/textView_sub_title_home_fragment"-->
-                            <!--android:textSize="14sp"-->
-                            <!--android:textStyle="bold" />-->
 
                         </LinearLayout>
 
@@ -227,7 +197,7 @@
                             android:background="#00000000"
                             android:text="@string/more"
                             android:textColor="@color/btn_create"
-                            android:textStyle="bold" />
+                            android:fontFamily="@font/montserrat_bold" />
 
                     </RelativeLayout>
 

@@ -10,6 +10,7 @@
     <ImageView
         android:layout_width="match_parent"
         android:src="@drawable/tr_box_background"
+        android:scaleType="fitXY"
         android:layout_height="match_parent">
     </ImageView>
 
@@ -29,7 +30,7 @@
         android:layout_width="wrap_content"
         android:text="How to possess the land"
         android:textColor="@color/white"
-        android:textStyle="bold"
+       android:fontFamily="@font/montserrat_bold"
         android:layout_below="@id/radi_art"
         android:layout_marginTop="32dp"
         android:layout_centerHorizontal="true"
@@ -42,6 +43,7 @@
         android:textColor="@color/white"
         android:layout_below="@id/txt_title"
         android:layout_marginTop="8dp"
+        android:fontFamily="@font/montserrat_regular"
         android:layout_centerHorizontal="true"
         android:layout_height="wrap_content"/>
 

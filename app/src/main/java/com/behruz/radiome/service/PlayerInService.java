@@ -1,6 +1,5 @@
 package com.behruz.radiome.service;
 
-import android.annotation.SuppressLint;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
@@ -32,7 +31,6 @@ import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.RemoteViews;
 import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
@@ -45,10 +43,9 @@ import androidx.media.app.NotificationCompat;
 import com.behruz.radiome.R;
 import com.behruz.radiome.model.Radio;
 import com.behruz.radiome.ui.NowPlayingActivity;
+import com.behruz.radiome.utils.Constants;
 import com.behruz.radiome.utils.PreferenUtil;
 import com.behruz.radiome.utils.Utility;
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
